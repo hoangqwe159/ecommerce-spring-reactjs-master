@@ -2,9 +2,8 @@ import React, {FC} from 'react';
 import {Route, Switch} from "react-router-dom";
 
 import Footer from "../../component/Footer/Footer";
-import HomePage from "../HomePage/HomePage";
 import NavBar from "../../component/NavBar/NavBar";
-import Account from "../Account/Account";
+import Account from "../Admin/Admin";
 
 
 const App: FC = () => {
@@ -12,9 +11,9 @@ const App: FC = () => {
         <>
             <NavBar/>
             <Switch>
-                <Route exact path="/" component={HomePage}/>
+                <Route exact path="/" component={Account}/>
                 <Route path="/menu" component={Account}/>
-                <Route path="*" component={HomePage}/>
+                <Route path="*" component={Account}/>
             </Switch>
             <Footer/>
         </>

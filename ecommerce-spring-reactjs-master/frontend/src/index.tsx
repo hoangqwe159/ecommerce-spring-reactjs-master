@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 import {ApolloProvider, ApolloClient, InMemoryCache, NormalizedCacheObject} from "@apollo/client"
 
 import App from './pages/App/App';
-import store from "./store";
 import {API_BASE_URL} from "./utils/constants/url";
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
@@ -15,10 +14,8 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <Provider store={store}>
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
-        </Provider>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
     </ApolloProvider>, document.getElementById('root')
 );
