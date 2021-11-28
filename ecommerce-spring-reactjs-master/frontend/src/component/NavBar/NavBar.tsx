@@ -23,7 +23,7 @@ const NavBar: FC = () => {
                                     <span className="nav-link pl-5 pr-5">PERFUMES</span></Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={"/menu/add"}><span className="nav-link pl-5 pr-5">EDIT</span></Link>
+                                <Link to={"/menu/add"}><span className="nav-link pl-5 pr-5">ADD</span></Link>
                             </li>
                         </ul>                
                     </div>

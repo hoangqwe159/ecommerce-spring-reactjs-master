@@ -1,13 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faList} from "@fortawesome/free-solid-svg-icons";
+import {faEdit, faTrash, faList} from "@fortawesome/free-solid-svg-icons";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 
 import usePagination from "../../../component/Pagination/usePagination";
 import {Product} from "../../../types/types";
 import SearchForm from "../../../component/SearchForm/SearchForm";
 import PaginationItem from "../../../component/Pagination/PaginationItem";
-
+import {Link} from "react-router-dom";
 import Spinner from '../../../component/Spinner/Spinner';
 
 type PropsType = {
@@ -17,8 +17,10 @@ type PropsType = {
     searchByData: Array<{ label: string, value: string }>
 };
 
+
 const PerfumeListComponent:FC<PropsType> = ({data, itemsPerPage,startFrom,searchByData}) => {
     const loading: boolean = data === null;
+
 
     const {
         slicedData,
@@ -32,6 +34,11 @@ const PerfumeListComponent:FC<PropsType> = ({data, itemsPerPage,startFrom,search
 
     useEffect(() => {
     }, [data]);
+
+    const deleteProduct = (product: Product): void => {
+        //TODO: Delete product
+        console.log(product);        
+    };
 
 
 
@@ -71,6 +78,16 @@ const PerfumeListComponent:FC<PropsType> = ({data, itemsPerPage,startFrom,search
                                             <h6>{product.productName}</h6>
                                             <h6>{product.brand}</h6>
                                             <h6><span>${product.price}</span>.00</h6>
+                                        </div>
+                                        <div className="btn-group text-center mb-3">
+                                            <Link type="button" className="btn btn-dark ml-2"
+                                                  to={`/menu/perfumes/${product.id}`}>
+                                                <FontAwesomeIcon className="fa-xs" icon={faEdit}/> Edit
+                                            </Link>
+                                            <button className="btn btn-warning mr-2"
+                                                    onClick={() => deleteProduct(product)}>
+                                                <FontAwesomeIcon className="fa-xs" icon={faTrash}/> Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

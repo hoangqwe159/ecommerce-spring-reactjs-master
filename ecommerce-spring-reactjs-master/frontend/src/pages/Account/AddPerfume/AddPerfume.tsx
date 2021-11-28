@@ -74,7 +74,6 @@ const AddPerfume: FC = () => {
             price,);
         
 
-        // dispatch(addPerfume(bodyFormData));
         //TODO: POST Product
     };
 
