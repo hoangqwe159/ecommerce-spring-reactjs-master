@@ -1,5 +1,4 @@
 import React, {FC} from 'react';
-import StarRatingComponent from "react-star-rating-component";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 
@@ -41,12 +40,7 @@ const ProductReview: FC<PropType> = ({data, itemsPerPage, startFrom}) => {
                                         <div className="col-md-3">
                                             <p><b>{review.author}</b></p>
                                             <p>{review.date}</p>
-                                            <StarRatingComponent
-                                                name="star"
-                                                value={review.rating}
-                                                renderStarIcon={() => <FontAwesomeIcon className="fa-sm" icon={faStar}/>}
-                                                starCount={5}
-                                                editing={false}/>
+                                          
                                         </div>
                                         <div className="col-md-9">
                                             <p>{review.message}</p>

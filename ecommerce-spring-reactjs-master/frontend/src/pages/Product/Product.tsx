@@ -5,7 +5,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCartPlus, faPaperPlane, faStar} from "@fortawesome/free-solid-svg-icons";
 import SockJS from "sockjs-client";
 import {CompatClient, Stomp} from '@stomp/stompjs';
-import StarRatingComponent from 'react-star-rating-component';
 
 import {WEBSOCKET_URL} from "../../utils/constants/url";
 import {fetchPerfumeByQuery, fetchPerfumeReviewsWS} from "../../redux/thunks/perfume-thunks";
@@ -77,14 +76,7 @@ const Product: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
 
     const renderStars = (perfumeRating: number = 5): JSX.Element => {
         return (
-            <StarRatingComponent
-                renderStarIconHalf={() => <img src={halfStar} alt="halfStar"
-                                               style={{width: "14.5px", marginBottom: "2px"}}/>}
-                renderStarIcon={() => <FontAwesomeIcon className="fa-sm" icon={faStar}/>}
-                name={"star"}
-                starCount={5}
-                editing={false}
-                value={perfumeRating}/>
+            <div></div>
         );
     };
 
@@ -187,13 +179,7 @@ const Product: FC<RouteComponentProps<{ id: string }>> = ({match}) => {
                                     <div className="col-md-8">
                                         <label><span className="text-danger"><b>*</b></span> Your mark</label>
                                         <div>
-                                            <StarRatingComponent
-                                                name="star"
-                                                starCount={5}
-                                                value={rating}
-                                                onStarClick={(value) => setRating(value)}
-                                                renderStarIcon={() => <FontAwesomeIcon className="fa-sm"
-                                                                                       icon={faStar}/>}/>
+                                           
                                             <div className="invalid-feedback d-block">{ratingError}</div>
                                         </div>
                                     </div>

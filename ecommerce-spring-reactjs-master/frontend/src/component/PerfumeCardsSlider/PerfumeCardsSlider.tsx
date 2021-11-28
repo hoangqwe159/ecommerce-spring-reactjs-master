@@ -7,7 +7,6 @@ import {fetchPerfumesByIds, fetchPerfumesByIdsQuery} from "../../redux/thunks/pe
 import "./PerfumeCardsSlider.css";
 import {AppStateType} from "../../redux/reducers/root-reducer";
 import {Perfume} from "../../types/types";
-import StarRating from "../StarRating/StarRating";
 
 const PerfumeCardsSlider: FC = () => {
     const dispatch = useDispatch();
@@ -36,7 +35,6 @@ const PerfumeCardsSlider: FC = () => {
                                         <div className="card-body text-center">
                                             <h5>{perfume.perfumeTitle}</h5>
                                             <h6>{perfume.perfumer}</h6>
-                                            <StarRating perfumeRating={perfume.perfumeRating} />
                                             <h6>$<span>{perfume.price}</span>.00</h6>
                                             <Link to={`/product/${perfume.id}`}>
                                             <span className="btn btn-dark">
